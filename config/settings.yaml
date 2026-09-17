@@ -1,0 +1,21 @@
+# Central config — thresholds and expectations live here, never hardcoded
+# in the check functions. Promoting to staging/prod is a config change only.
+
+table: customer_orders
+
+schema:
+  # column_name: expected_type
+  order_id: string
+  customer_id: string
+  order_amount: double
+  order_status: string
+  created_at: timestamp
+
+not_null_columns:
+  - order_id
+  - customer_id
+  - order_amount
+
+primary_key: order_id
+
+expected_row_count_tolerance_pct: 0
